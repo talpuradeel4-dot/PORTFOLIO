@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        header {
+            height: 80px;
+            background-color: rgb(20, 20, 55);
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            border-bottom: 1px solid rgb(50, 50, 90);
+        }
+        header h2 {
+            font-size: 28px;
+        }
+        .contact-section {
+            min-height: calc(100vh - 160px);
+            display: flex;
+            padding: 50px 8%;
+            gap: 80px;
+        }
+        .contact-left {
+            width: 50%;
+        }
+        .contact-left h1 {
+            font-size: 45px;
+            margin-bottom: 35px;
+        }
+        .details {
+            margin-bottom: 20px;
+        }
+        .details label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .details input {
+            width: 100%;
+            max-width: 450px;
+            height: 45px;
+            padding: 10px 12px;
+            font-size: 16px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            outline: none;
+        }
+        .details input:focus {
+            border: 2px solid rgb(120, 100, 220);
+        }
+
+        #comment {
+            width: 100%;
+            max-width: 450px;
+            height: 280px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            resize: vertical;
+            outline: none;
+             font-family: 'Poppins', sans-serif;
+        }
+        #comment:focus {
+            border: 2px solid rgb(120, 100, 220);
+        }
+
+        .send-button {
+            width: 450px;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 40px;
+            font-size: 17px;
+            background-color: rgb(100, 70, 200);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: rgb(125, 95, 225);
+            transform: translateY(-2px);
+        }
+
+        .contact-right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #element {
+            font-size: 36px;
+            font-weight: bold;
+            white-space: nowrap;
+            color: white;
+        }
+        footer {
+            min-height: 80px;
+            background-color: rgb(20, 20, 55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 20px;
+            border-top: 1px solid rgb(50, 50, 90);
+        }
+        footer p {
+            font-size: 16px;
+        }
+        footer span {
+            color: rgb(170, 155, 255);
+        }
+#formMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+        /* media query is used to look website same in smaller screens like phones as it
+        look likes same on bigger screen like laptop */
+        
+        @media (max-width: 800px) {
+            .contact-section {
+                flex-direction: column;
+                gap: 50px;
+            }
+            .contact-left,
+            .contact-right {
+                width: 100%;
+            }
+            .contact-right {
+                min-height: 150px;
+            }
+            #element {
+                font-size: 28px;
+            }
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Adeel's Portfolio</h2>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-left">
+            <h1>Contact Us</h1>
+            <form id="contactForm" action="http://localhost:3000/contact" method="POST">
+                <div class="details">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required>
+                </div>
+
+                <div class="details">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"    
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="details">
+                    <label for="comment">Comment</label>
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        placeholder="Write your message..."></textarea>
+                </div>
+            
+<div class="send-button">
+    <button type="submit" id="sendButton">
+        Send
+    </button>
+</div>
+<p id="formMessage"></p>
+
+            </form>
+        </div>
+
+        <div class="contact-right">
+            <h2 id="element"></h2>
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            Work Email:
+            <span>0adeel039@gmail.com</span>
+        </p>
+
+        <p>
+            Personal Email:
+            <span>talpuradeel4@gmail.com</span>
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Feel Free To Contact Me<br>I am always open to <br> discussing projects,<br> ideas, and <br> opportunities.'],
+            typeSpeed: 50,
+            showCursor: true,
+            cursorChar: '|',
+            loop: false
+        });
+
+    </script>
+    
+<script>
+const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+const sendButton = document.getElementById("sendButton");
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    sendButton.disabled = true;
+    sendButton.textContent = "Sending...";
+    formMessage.textContent = "";
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch("http://localhost:3000/contact", {
+            method: "POST",
+            body: new URLSearchParams(formData)
+        });
+
+        if (response.ok) {
+            formMessage.textContent = "Message sent successfully!";
+            form.reset();
+        } else {
+            formMessage.textContent = "Something went wrong. Please try again.";
+        }
+
+    } catch (error) {
+        formMessage.textContent = "Could not connect to the server.";
+        console.log(error);
+    }
+
+    sendButton.disabled = false;
+    sendButton.textContent = "Send";
+});
+</script>
+</body>
+</html>
